@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume History Optimizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1f2937; /* Dark background */
+            color: #d1d5db; /* Light text */
+        }
+        .dark-input {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: #f3f4f6;
+        }
+        .dark-input:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 1px #6366f1;
+        }
+        strong {
+            font-weight: 700; /* Ensure strong tag is visually bold */
+            color: #f3f4f6;
+        }
+        /* Custom link styling for header/footer */
+        .nav-link {
+            transition: color 0.2s;
+            border-radius: 0.5rem;
+        }
+        .nav-link:hover {
+            color: #818cf8; /* indigo-300 */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    
+    <header class="bg-gray-900 shadow-xl border-b border-gray-700 p-4 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+            <div class="text-2xl font-extrabold text-white flex items-center">
+                <svg class="w-7 h-7 mr-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9.25 21H14.75L14.25 17M12 3L2 12H4V21H20V12H22L12 3Z"></path></svg>
+                <span class="text-indigo-400">AI</span> Optimizer
+            </div>
+
+            <nav class="flex space-x-6 text-sm font-medium">
+                <a href="index101.html" class="text-gray-300 nav-link hover:text-indigo-400">Tool</a>
+                <a href="about.html" class="text-gray-300 nav-link hover:text-indigo-400">About us</a>
+                <a href="contact.html" class="text-gray-300 nav-link hover:text-indigo-400">Contact Us</a>
+                <a href="faq.html" class="text-gray-300 nav-link hover:text-indigo-400">FAQ</a>
+                <a href="others.html" class="text-gray-300 nav-link hover:text-indigo-400">Relatable</a>
+            </nav>
+        </div>
+    </header>
+    <div id="app" class="max-w-4xl mx-auto bg-gray-800 p-6 md:p-10 rounded-xl shadow-2xl border border-gray-700 my-8">
+        
+        <h1 class="text-3xl font-extrabold text-white mb-4 text-center flex items-center justify-center">
+            <svg class="w-8 h-8 mr-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9.25 21H14.75L14.25 17M12 3L2 12H4V21H20V12H22L12 3Z"></path></svg>
+            <span class="text-indigo-400">AI</span> Resume History Optimizer
+        </h1>
+        
+        <div class="mb-8 p-4 bg-gray-700 rounded-lg border-l-4 border-indigo-500 shadow-md">
+            <h2 class="text-xl font-semibold text-white mb-2">How This Tool Helps You</h2>
+            <p class="text-gray-300 mb-3">
+                This is a powerful <strong>drafting and optimization tool</strong>, <strong>not a full resume builder</strong>. Its purpose is to take your existing, unoptimized job descriptions and rewrite them to perfectly align with a target job.
+            </p>
+            <p class="text-gray-300 mb-3">
+                <span class="font-bold text-yellow-300">ATS Optimization:</span> The AI analyzes the <strong>Applicant Tracking System (ATS)</strong> keywords from the Job Description you provide and strategically integrates that language into your bullet points. This significantly increases your resume's chances of passing the initial automated screening.
+            </p>
+            <p class="text-gray-300">
+                You can generate <strong>optimized resume bullet points</strong>, a <strong>professional summary</strong>, or a <strong>complete cover letter</strong>.
+            </p>
+        </div>
+        <div id="step-1" class="mb-10 p-6 bg-gray-700 rounded-lg border border-gray-600">
+            <h2 class="text-xl font-semibold text-gray-200 mb-6 flex items-center">
+                1. Your Details and Employment History
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label for="user-name" class="block text-sm font-medium text-gray-300 mb-1">Your Full Name (For Document)</label>
+                    <input type="text" id="user-name" placeholder="John Doe" class="w-full p-2 rounded-lg dark-input focus:ring-indigo-400 focus:border-indigo-400" oninput="saveData()">
+                </div>
+                <div>
+                    <label for="user-gender" class="block text-sm font-medium text-gray-300 mb-1">Gender (For Cover Letter Tone)</label>
+                    <select id="user-gender" class="w-full p-2 rounded-lg dark-input focus:ring-indigo-400 focus:border-indigo-400" onchange="saveData()">
+                        <option value="Neutral">Prefer Neutral/Formal</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-6 p-4 rounded-lg bg-gray-600 border border-gray-500">
+                <h3 class="text-md font-semibold text-gray-200 mb-3">Education Details (For Cover Letter)</h3>
+                <div id="education-entries-container" class="space-y-4">
+                    </div>
+                <button onclick="addDegreeEntry()" class="w-full mt-4 py-2 px-4 border border-indigo-400 text-indigo-300 bg-gray-700 rounded-lg hover:bg-gray-700/70 transition duration-150 font-medium flex items-center justify-center text-sm">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    Add Degree/Certification
+                </button>
+            </div>
+
+            <div class="flex space-x-4 mb-6">
+                <button onclick="saveData()" class="w-1/2 py-2 px-4 border border-green-400 text-green-300 bg-gray-600 rounded-lg hover:bg-gray-600/70 transition duration-150 font-medium flex items-center justify-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
+                    Save Data
+                </button>
+                <button onclick="loadData()" class="w-1/2 py-2 px-4 border border-blue-400 text-blue-300 bg-gray-600 rounded-lg hover:bg-gray-600/70 transition duration-150 font-medium flex items-center justify-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    Load Saved Data
+                </button>
+            </div>
+            <p id="save-status" class="text-center text-sm italic text-gray-400 mb-4"></p>
+
+            <hr class="border-gray-600 my-6">
+
+            <div id="job-entries-container" class="space-y-6">
+                </div>
+
+            <button onclick="addJobEntry()" class="w-full mt-6 py-2 px-4 border border-indigo-400 text-indigo-300 bg-gray-600 rounded-lg hover:bg-gray-600/70 transition duration-150 font-medium flex items-center justify-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                Add New Job
+            </button>
+
+            <button onclick="validateAndProceedToStep2()" id="next-step-button" class="mt-8 w-full py-3 bg-indigo-500 text-white font-bold rounded-lg shadow-md hover:bg-indigo-600 transition duration-200">
+                Proceed to Optimization & Document Generation
+            </button>
+        </div>
+
+        <div id="step-2" class="mb-10 p-6 bg-gray-700 rounded-lg border border-yellow-500 hidden">
+            <h2 class="text-xl font-semibold text-gray-200 mb-4 flex items-center">
+                2. Target Role Details (Required for Optimization)
+            </h2>
+            <p class="text-sm text-gray-400 mb-4">
+                Paste the full Job Description (JD) from the role you are applying for. This is required to tailor all generated content.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label for="target-company-name" class="block text-sm font-medium text-gray-300 mb-1">Target Company Name</label>
+                    <input type="text" id="target-company-name" placeholder="Acme Corp" class="w-full p-2 rounded-lg dark-input focus:ring-yellow-500 focus:border-yellow-500" oninput="saveData()">
+                </div>
+                <div>
+                    <label for="hiring-manager-name" class="block text-sm font-medium text-gray-300 mb-1">Hiring Manager Name (Optional)</label>
+                    <input type="text" id="hiring-manager-name" placeholder="Ms. Jane Doe (or leave blank)" class="w-full p-2 rounded-lg dark-input focus:ring-yellow-500 focus:border-yellow-500" oninput="saveData()">
+                </div>
+            </div>
+
+            <textarea id="target-jd-input" rows="8" class="w-full p-3 rounded-lg dark-input focus:ring-yellow-500 focus:border-yellow-500 transition duration-150 mb-6" placeholder="Paste the target job description here..." oninput="saveData()"></textarea>
+
+            <h3 class="text-lg font-semibold text-gray-300 mt-6 mb-3">What would you like to generate?</h3>
+            
+            <div class="mt-6 flex flex-col space-y-4">
+                <button onclick="generateContent('summary')" class="w-full py-3 bg-purple-600 text-white font-bold rounded-lg shadow-lg hover:bg-purple-500 transition duration-200" id="generate-summary-btn">
+                    Generate Optimized Professional Summary
+                </button>
+                <button onclick="generateContent('resume')" class="w-full py-3 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:bg-green-500 transition duration-200" id="generate-optimized-btn">
+                    Generate Optimized Resume History
+                </button>
+                <button onclick="generateContent('cover_letter')" class="w-full py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-500 transition duration-200" id="generate-coverletter-btn">
+                    Generate Complete Cover Letter
+                </button>
+            </div>
+            
+            <button onclick="showStep1()" class="w-full mt-4 py-2 bg-gray-600 text-gray-300 font-bold rounded-lg hover:bg-gray-500 transition duration-200 flex items-center justify-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back to History Input
+            </button>
+
+        </div>
+
+        <div id="step-3" class="mb-10 p-6 bg-gray-800 rounded-lg shadow-inner border border-green-500 hidden">
+            <h2 id="result-title" class="text-xl font-semibold text-gray-200 mb-4 flex items-center">
+                3. Generated Document
+            </h2>
+
+            <div id="loading-indicator" class="flex items-center justify-center p-8 bg-gray-700 rounded-lg hidden">
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span id="loading-message" class="text-indigo-400 font-medium">Drafting your professional narrative... Please wait.</span>
+            </div>
+
+            <div id="error-message" class="p-4 bg-red-800 border border-red-500 text-red-300 rounded-lg hidden" role="alert">
+                <p class="font-bold">Error:</p>
+                <p id="error-text"></p>
+            </div>
+
+            <textarea id="result-output" rows="15" readonly class="w-full p-4 rounded-lg dark-input text-gray-200 focus:outline-none resize-none"></textarea>
+
+            <button onclick="downloadContent()" class="mt-4 w-full py-3 bg-indigo-500 text-white font-bold rounded-lg shadow-lg hover:bg-indigo-600 transition duration-200 flex items-center justify-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                Download Document (.doc)
+            </button>
+            
+            <button onclick="showStep2()" class="w-full mt-4 py-2 bg-gray-600 text-gray-300 font-bold rounded-lg hover:bg-gray-500 transition duration-200 flex items-center justify-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back to Target Role & Generate Options
+            </button>
+        </div>
+
+    </div>
+
+    <footer class="bg-gray-900 border-t border-gray-700 mt-8 py-6">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-3 md:space-y-0 md:space-x-6 text-sm">
+            <p class="text-gray-400">&copy; 2024 AI Optimizer. All rights reserved.</p>
+            <div class="flex space-x-4">
+                <a href="pp.html" class="text-gray-300 nav-link hover:text-indigo-400">Privacy Policy</a>
+                <span class="text-gray-500">|</span>
+                <a href="tos.html" class="text-gray-300 nav-link hover:text-indigo-400">Terms and Conditions</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // API Configuration
+        const API_KEY = ""; // Intentionally left blank for Canvas environment
+        const MODEL_NAME = "gemini-2.5-flash-preview-05-20";
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
+        const LOCAL_STORAGE_KEY = 'ai_resume_data';
+
+        let jobEntryCounter = 0;
+        let projectCounter = 0; // New counter for unique project IDs
+        let degreeEntryCounter = 0; // NEW: Counter for degrees
+        let activeDocumentType = ''; // 'resume', 'cover_letter', or 'summary'
+
+        const loadingMessages = [
+            "Analyzing skills and matching keywords...",
+            "Drafting your professional narrative...",
+            "Refining content for optimal impact...",
+            "Formatting and finalizing document...",
+            "Scanning job description for critical requirements...",
+            "Synthesizing experience into actionable results..."
+        ];
+
+        let messageInterval;
+
+        /** Cycles through generic loading messages. */
+        function startLoadingMessages() {
+            const messageElement = document.getElementById('loading-message');
+            let index = 0;
+            
+            messageElement.textContent = loadingMessages[index];
+
+            messageInterval = setInterval(() => {
+                index = (index + 1) % loadingMessages.length;
+                messageElement.textContent = loadingMessages[index];
+            }, 3000); // Change message every 3 seconds
+        }
+
+        /** Stops the cycling of loading messages. */
+        function stopLoadingMessages() {
+            if (messageInterval) {
+                clearInterval(messageInterval);
+                messageInterval = null;
+            }
+        }
+
+        // --- Data Persistence (Save/Load) Functions ---
+
+        /** Saves the current input data to localStorage. */
+        function saveData() {
+            const data = collectAllData(true); // Collect all data including non-mandatory fields
+            try {
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
+                document.getElementById('save-status').textContent = 'Data saved successfully to browser storage.';
+            } catch (e) {
+                console.error("Error saving data to localStorage:", e);
+                document.getElementById('save-status').textContent = 'Error saving data.';
+            }
+        }
+
+        /** Loads data from localStorage and populates the UI. */
+        function loadData() {
+            const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+            if (savedData) {
+                try {
+                    const data = JSON.parse(savedData);
+                    populateUI(data);
+                    document.getElementById('save-status').textContent = 'Data loaded from browser storage.';
+                } catch (e) {
+                    console.error("Error parsing saved data:", e);
+                    document.getElementById('save-status').textContent = 'Error loading data. Data cleared.';
+                    localStorage.removeItem(LOCAL_STORAGE_KEY);
+                }
+            } else {
+                document.getElementById('save-status').textContent = 'No saved data found.';
+            }
+        }
+
+        /** Populates the UI elements with loaded data. */
+        function populateUI(data) {
+            // User Info & Target JD
+            document.getElementById('user-name').value = data.userName || '';
+            document.getElementById('user-gender').value = data.userGender || 'Neutral';
+            
+            // NEW: Education Entries
+            const educationContainer = document.getElementById('education-entries-container');
+            educationContainer.innerHTML = ''; // Clear existing
+            degreeEntryCounter = 0;
+
+            if (data.degrees && data.degrees.length > 0) {
+                data.degrees.forEach(degreeData => {
+                    addDegreeEntry(degreeData);
+                });
+            }
+            // END NEW
+
+            document.getElementById('target-company-name').value = data.targetCompanyName || '';
+            document.getElementById('hiring-manager-name').value = data.hiringManagerName || '';
+            document.getElementById('target-jd-input').value = data.targetJD || '';
+
+            // Job Entries
+            const container = document.getElementById('job-entries-container');
+            container.innerHTML = ''; // Clear existing entries
+            jobEntryCounter = 0;
+
+            if (data.jobs && data.jobs.length > 0) {
+                data.jobs.forEach(jobData => {
+                    addJobEntry(jobData);
+                });
+            }
+        }
+
+        // --- Project Handling Functions ---
+
+        /**
+         * Generates the HTML for a single project entry.
+         * @param {string} jobId - The ID of the parent job.
+         * @param {string} projectId - The unique ID for the project.
+         * @param {Object} [data] - Optional project data for loading.
+         * @returns {string} The HTML string for the project entry.
+         */
+        function addProjectEntryHtml(jobId, projectId, data) {
+            data = data || {};
+            return `
+                <div id="${projectId}" class="project-entry p-3 mt-3 bg-gray-500 rounded-lg border border-gray-400">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-sm font-bold text-gray-200">Project Details</h4>
+                        <button onclick="removeProjectEntry('${projectId}')" type="button" class="text-red-300 hover:text-red-400 text-sm transition duration-150">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    </div>
+                    
+                    <input type="text" placeholder="Project Name (Optional)" data-type="project-name" class="w-full p-2 mb-2 rounded-lg dark-input text-sm" value="${data.name || ''}" oninput="saveData()">
+                    
+                    <div class="grid grid-cols-2 gap-2 mb-2">
+                        <input type="text" placeholder="Start Date (e.g., 2023-01)" data-type="project-start-date" class="p-2 rounded-lg dark-input text-xs" value="${data.tenure ? data.tenure.split(' - ')[0] : ''}" oninput="saveData()">
+                        <input type="text" placeholder="End Date (e.g., 2023-03)" data-type="project-end-date" class="p-2 rounded-lg dark-input text-xs" value="${data.tenure ? data.tenure.split(' - ')[1] : ''}" oninput="saveData()">
+                    </div>
+                    
+                    <textarea rows="3" placeholder="Project Description & Achievements (Optional)" data-type="project-details" class="w-full p-2 rounded-lg dark-input text-sm" oninput="saveData()">${data.details || ''}</textarea>
+                </div>
+            `;
+        }
+
+        /**
+         * Adds a new project entry to a specific job's project container.
+         * @param {string} jobId - The ID of the job entry to add the project to.
+         * @param {Object} [data] - Optional project data for loading.
+         */
+        function addProjectEntry(jobId, data) {
+            projectCounter++;
+            const container = document.querySelector(`#${jobId} .projects-container`);
+            const newId = `project-${jobId}-${projectCounter}`;
+            const projectHtml = addProjectEntryHtml(jobId, newId, data);
+            container.insertAdjacentHTML('beforeend', projectHtml);
+            saveData();
+        }
+
+        /**
+         * Removes a specific project entry from the UI.
+         * @param {string} id - The unique ID of the project div to remove.
+         */
+        function removeProjectEntry(id) {
+            document.getElementById(id).remove();
+            saveData();
+        }
+
+        // --- Education Handling Functions (NEW) ---
+
+        /**
+         * Generates the HTML for a single degree entry.
+         * @param {string} degreeId - The unique ID for the degree entry.
+         * @param {Object} [data] - Optional degree data for loading.
+         * @returns {string} The HTML string for the degree entry.
+         */
+        function addDegreeEntryHtml(degreeId, data) {
+            data = data || {};
+            return `
+                <div id="${degreeId}" class="degree-entry p-3 bg-gray-700 rounded-lg border border-gray-600">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="text-sm font-bold text-indigo-300">Degree/Certification</h4>
+                        <button onclick="removeDegreeEntry('${degreeId}')" type="button" class="text-red-300 hover:text-red-400 text-sm transition duration-150">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <input type="text" placeholder="Degree Name (e.g., MS in CS)" data-type="degree-name" class="p-2 rounded-lg dark-input text-sm" value="${data.name || ''}" oninput="saveData()">
+                        <input type="text" placeholder="University/Institution Name" data-type="university-name" class="p-2 rounded-lg dark-input text-sm" value="${data.university || ''}" oninput="saveData()">
+                    </div>
+                </div>
+            `;
+        }
+
+        /**
+         * Adds a new degree entry to the container.
+         * @param {Object} [data] - Optional degree data for loading.
+         */
+        function addDegreeEntry(data) {
+            degreeEntryCounter++;
+            const container = document.getElementById('education-entries-container');
+            const newId = `degree-entry-${degreeEntryCounter}`;
+            const degreeHtml = addDegreeEntryHtml(newId, data);
+            container.insertAdjacentHTML('beforeend', degreeHtml);
+            saveData();
+        }
+
+        /**
+         * Removes a specific degree entry from the UI.
+         * @param {string} id - The unique ID of the degree div to remove.
+         */
+        function removeDegreeEntry(id) {
+            document.getElementById(id).remove();
+            saveData();
+        }
+        
+        // --- Job Handling Functions ---
+
+        /**
+         * Adds a new job entry input block to the UI, including the project section.
+         * @param {Object} [data] - Optional job data for loading.
+         */
+        function addJobEntry(data) {
+            jobEntryCounter++;
+            const container = document.getElementById('job-entries-container');
+            const newId = `job-entry-${jobEntryCounter}`;
+            data = data || {};
+
+            const startDate = data.tenure ? data.tenure.split(' - ')[0] : '';
+            const endDate = data.tenure ? data.tenure.split(' - ')[1] : '';
+            const metrics = data.metrics || ['', '', ''];
+
+            const jobHtml = `
+                <div id="${newId}" class="p-4 rounded-lg bg-gray-600 shadow-lg job-entry border border-gray-500">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-lg font-semibold text-gray-200">Job #${jobEntryCounter} - ${data.title || 'New Entry'}</h3>
+                        <button onclick="removeJobEntry('${newId}')" type="button" class="text-red-400 hover:text-red-500 transition duration-150">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+                        <input type="text" placeholder="Company Name" data-type="company" class="p-2 rounded-lg dark-input col-span-1" value="${data.company || ''}" oninput="saveData()">
+                        <input type="text" placeholder="Designation/Title" data-type="title" class="p-2 rounded-lg dark-input col-span-1" value="${data.title || ''}" oninput="saveData()">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+                        <input type="text" placeholder="Start Date (e.g., 2020-01)" data-type="start-date" class="p-2 rounded-lg dark-input col-span-1" value="${startDate}" oninput="saveData()">
+                        <input type="text" placeholder="End Date / Present (e.g., 2023-12 or Present)" data-type="end-date" class="p-2 rounded-lg dark-input col-span-1" value="${endDate}" oninput="saveData()">
+                    </div>
+                    
+                    <h4 class="text-sm font-medium text-gray-300 mb-2 mt-4 border-t border-gray-500 pt-4">3 Key Quantifiable Achievements (Strongly Recommended)</h4>
+                    <input type="text" placeholder="Achievement 1 (e.g., Reduced latency by 25%.)" data-type="metric-1" class="w-full p-2 mb-2 rounded-lg dark-input" value="${metrics[0] || ''}" oninput="saveData()">
+                    <input type="text" placeholder="Achievement 2 (e.g., Led a team of 4 engineers.)" data-type="metric-2" class="w-full p-2 mb-2 rounded-lg dark-input" value="${metrics[1] || ''}" oninput="saveData()">
+                    <input type="text" placeholder="Achievement 3 (e.g., Secured $50k in new annual revenue.)" data-type="metric-3" class="w-full p-2 mb-4 rounded-lg dark-input" value="${metrics[2] || ''}" oninput="saveData()">
+
+                    <textarea rows="4" placeholder="Core Responsibilities/JDs (One point per line, for context only.)" data-type="jds" class="w-full p-2 mb-4 rounded-lg dark-input" oninput="saveData()">${data.jds || ''}</textarea>
+
+                    <div class="border-t border-gray-500 pt-4 mt-2">
+                        <h4 class="text-md font-semibold text-gray-300 mb-2 flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L11 1.586A2 2 0 009.586 1H6zm4 8a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                            Optional Projects for this Role
+                        </h4>
+                        <div class="projects-container space-y-2">
+                            </div>
+                        <button onclick="addProjectEntry('${newId}')" type="button" class="mt-3 w-full py-1.5 px-3 border border-yellow-400 text-yellow-300 bg-gray-700 rounded-lg hover:bg-gray-700/70 transition duration-150 text-sm font-medium flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            Add Project
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', jobHtml);
+
+            // If loading data, add projects
+            if (data.projects && data.projects.length > 0) {
+                data.projects.forEach(projectData => {
+                    addProjectEntry(newId, projectData);
+                });
+            }
+            saveData();
+        }
+
+        /**
+         * Removes a job entry block from the UI.
+         * @param {string} id The ID of the job entry div to remove.
+         */
+        function removeJobEntry(id) {
+            document.getElementById(id).remove();
+            saveData();
+        }
+        
+        // --- Navigation Functions ---
+
+        /** Transitions to Step 1: User Info and Job History. */
+        function showStep1() {
+            document.getElementById('step-1').classList.remove('hidden');
+            document.getElementById('step-2').classList.add('hidden');
+            document.getElementById('step-3').classList.add('hidden');
+            displayError("", false); // Clear any errors
+        }
+
+        /** Transitions to Step 2: Target Role and Generation Options. */
+        function showStep2() {
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('step-2').classList.remove('hidden');
+            document.getElementById('step-3').classList.add('hidden');
+            displayError("", false); // Clear any errors
+        }
+
+
+        /** Validates job history input and moves to Step 2. */
+        function validateAndProceedToStep2() {
+            const allData = collectAllData(); 
+            const jobs = allData.jobs;
+            const userName = allData.userName;
+
+            if (!userName) {
+                displayError("Please enter your name before proceeding.", true);
+                return;
+            }
+
+            if (jobs.length === 0) {
+                displayError("Please add at least one complete job entry (Company, Title, Dates) before proceeding.", true);
+                return;
+            }
+
+            // If validation passes, show step 2
+            showStep2();
+        }
+
+        // --- Data Collection and API Functions ---
+
+        /**
+         * Collects and structures all data from the inputs.
+         * @param {boolean} includeNonMandatory - If true, includes fields even if they fail validation (for saving).
+         * @returns {Object} An object containing user info and job data.
+         */
+        function collectAllData(includeNonMandatory = false) {
+            const jobs = [];
+            document.querySelectorAll('.job-entry').forEach(jobDiv => {
+                const company = jobDiv.querySelector('[data-type="company"]').value.trim();
+                const title = jobDiv.querySelector('[data-type="title"]').value.trim();
+                
+                // Collect separate date fields and combine them into a single 'tenure' string
+                const startDate = jobDiv.querySelector('[data-type="start-date"]').value.trim();
+                const endDate = jobDiv.querySelector('[data-type="end-date"]').value.trim();
+                const tenure = `${startDate} - ${endDate}`;
+
+                const jds = jobDiv.querySelector('[data-type="jds"]').value.trim();
+                
+                // Collect Metrics
+                const metrics = [
+                    jobDiv.querySelector('[data-type="metric-1"]').value.trim(),
+                    jobDiv.querySelector('[data-type="metric-2"]').value.trim(),
+                    jobDiv.querySelector('[data-type="metric-3"]').value.trim()
+                ];
+
+                const projects = [];
+
+                // Collect projects for this job
+                jobDiv.querySelectorAll('.project-entry').forEach(projectDiv => {
+                    const projectName = projectDiv.querySelector('[data-type="project-name"]').value.trim();
+                    const projectDetails = projectDiv.querySelector('[data-type="project-details"]').value.trim();
+                    const projectStartDate = projectDiv.querySelector('[data-type="project-start-date"]').value.trim();
+                    const projectEndDate = projectDiv.querySelector('[data-type="project-end-date"]').value.trim();
+                    
+                    if (projectName || projectDetails || includeNonMandatory) {
+                        projects.push({
+                            name: projectName,
+                            details: projectDetails,
+                            tenure: `${projectStartDate} - ${projectEndDate}`.trim().replace(/^ - | - $/g, '')
+                        });
+                    }
+                });
+
+                // Only include complete entries if not saving
+                if (includeNonMandatory || (company && title && startDate && endDate)) {
+                    jobs.push({ company, title, tenure, jds, metrics, projects });
+                }
+            });
+            
+            // NEW: Collect Degrees
+            const degrees = [];
+            document.querySelectorAll('.degree-entry').forEach(degreeDiv => {
+                const name = degreeDiv.querySelector('[data-type="degree-name"]').value.trim();
+                const university = degreeDiv.querySelector('[data-type="university-name"]').value.trim();
+                
+                if (name || university || includeNonMandatory) {
+                    degrees.push({ name, university });
+                }
+            });
+
+
+            return {
+                userName: document.getElementById('user-name').value.trim(),
+                userGender: document.getElementById('user-gender').value,
+                degrees: degrees, // UPDATED: Array of degrees
+                jobs: jobs,
+                targetCompanyName: document.getElementById('target-company-name').value.trim(),
+                hiringManagerName: document.getElementById('hiring-manager-name').value.trim(),
+                targetJD: document.getElementById('target-jd-input').value.trim()
+            };
+        }
+
+        /**
+         * Constructs the formatted text for the Gemini API request based on document type.
+         * @param {Object} data - The collected user and job data.
+         * @param {string} documentType - 'resume', 'cover_letter', or 'summary'.
+         * @returns {string} The full user query string.
+         */
+        function buildQuery(data, documentType) {
+            let historyText = "";
+            data.jobs.forEach(job => {
+                historyText += `\n**Company:** ${job.company}\n`;
+                historyText += `**Title:** ${job.title}\n`;
+                historyText += `**Tenure:** ${job.tenure}\n`; 
+                
+                // Include Structured Metrics
+                if (job.metrics.some(m => m)) {
+                    historyText += `**Key Quantifiable Achievements (Mandatory to integrate):**\n`;
+                    job.metrics.filter(m => m).forEach(metric => {
+                         historyText += `\t- ${metric}\n`;
+                    });
+                }
+                
+                historyText += `**Original Responsibilities (for context only):**\n`;
+                historyText += job.jds.split('\n').map(line => line.trim()).filter(line => line).map(line => `\t- ${line}`).join('\n') + '\n';
+                
+                // Add Project Details to the prompt
+                if (job.projects && job.projects.length > 0) {
+                    historyText += `**Associated Projects (Mandatory to leverage for optimization):**\n`;
+                    job.projects.forEach((project, index) => {
+                        const projectTenure = project.tenure ? ` (${project.tenure})` : '';
+                        const projectName = project.name || `Unnamed Project ${index + 1}`;
+                        historyText += `\tProject ${index + 1}: "${projectName}"${projectTenure}\n`;
+                        historyText += `\t\tDetails: ${project.details}\n`;
+                    });
+                }
+            });
+
+            const targetJDText = data.targetJD || "N/A (The output should be a general, professional rephrasing of the existing JDs)";
+            const targetManager = data.hiringManagerName || "Hiring Manager";
+            const targetCompany = data.targetCompanyName || "Relevant Organization";
+
+            // UPDATED: Education Info (Handles multiple entries)
+            let educationText = "";
+            let educationSummary = "";
+            if (data.degrees && data.degrees.length > 0) {
+                educationText += "**Candidate's Education:**\n";
+                educationSummary = data.degrees.map(d => `${d.name} (${d.university})`).join(' and ');
+                data.degrees.forEach(deg => {
+                    if (deg.name || deg.university) {
+                        educationText += `\t- ${deg.name || 'Degree/Certification'} from ${deg.university || 'Institution Name'}\n`;
+                    }
+                });
+            } else {
+                educationText = "Education details not provided.";
+            }
+
+            let baseQuery = `
+Candidate Name: ${data.userName}
+Candidate Gender Preference: ${data.userGender}
+${educationText}
+Target Company: ${targetCompany}
+Target Manager/Recipient: ${targetManager}
+
+**CANDIDATE'S EXISTING EMPLOYMENT HISTORY (INCLUDING STRUCTURED METRICS AND PROJECTS):**
+${historyText}
+
+---
+
+**TARGET JOB DESCRIPTION:**
+${targetJDText}
+
+---
+`;
+            if (documentType === 'resume') {
+                return baseQuery + `
+**TASK:** Using the Candidate's Existing Employment History, Structured Metrics, and Associated Projects, create a new, optimized version of the job history only. This optimized version MUST be highly relevant to the Target Job Description. Focus on achievements and quantifiable results, using project details and metrics to demonstrate complex skills. The output MUST ONLY contain the fully rephrased, professional job history summary in a resume-ready format (Title, Company, Tenure, and bullet points).`;
+
+            } else if (documentType === 'summary') {
+                 return baseQuery + `
+**TASK:** Write a powerful, concise professional summary (4-5 sentences, one paragraph) for the top of the resume. The summary must be tailored specifically to the keywords and requirements found in the Target Job Description and must draw on the candidate's history, projects, and structured metrics to showcase expertise. Do not include a title or any conversational wrappers. The output MUST ONLY contain the summary paragraph.`;
+
+            } else if (documentType === 'cover_letter') {
+                const managerGreeting = targetManager.includes('Manager') || targetManager.includes('Team') || !targetManager ? `Dear ${targetManager},` : `Dear ${targetManager},`;
+                const primaryDegree = data.degrees.length > 0 ? data.degrees[0] : {name: 'education', university: 'institution'};
+
+                return baseQuery + `
+**TASK:** Write a complete, one-page formal Cover Letter addressed to the Target Manager/Recipient (${targetManager}) for the Target Company (${targetCompany}).
+The letter must:
+1. Be professional and persuasive.
+2. Directly reference the skills and keywords found in the Target Job Description.
+3. Integrate 3-5 key achievements/skills/metrics discovered from the Employment History and Projects as proof points.
+4. Use the provided Candidate Name and adapt the tone slightly based on the Gender Preference.
+5. **Crucially, reference the candidate's education (${educationSummary}) naturally into the letter to show educational relevance, mentioning the primary degree as "${primaryDegree.name}" from "${primaryDegree.university}".**
+The output MUST ONLY contain the complete, formatted Cover Letter text, starting with the date and ending with the signature line.`;
+            }
+        }
+        
+        /**
+         * Helper to show or hide the error message box.
+         * @param {string} text - The error message text.
+         * @param {boolean} isVisible - Whether to show or hide the box.
+         */
+        function displayError(text, isVisible) {
+            const errorBox = document.getElementById('error-message');
+            document.getElementById('error-text').textContent = text;
+            if (isVisible) {
+                errorBox.classList.remove('hidden');
+            } else {
+                errorBox.classList.add('hidden');
+            }
+        }
+
+        /**
+         * Calls the Gemini API to generate the optimized content.
+         * @param {string} docType - 'resume', 'cover_letter', or 'summary'.
+         */
+        async function generateContent(docType) {
+            const data = collectAllData();
+            activeDocumentType = docType;
+
+            // Enforce Target JD for Optimization tasks
+            if (data.targetJD.length < 50) {
+                displayError("The Target Job Description must be provided and must be detailed for effective optimization or document generation (min 50 characters).", true);
+                return;
+            }
+            if (data.jobs.length === 0) {
+                displayError("No job history found. Please go back to Step 1 and add at least one job.", true);
+                return;
+            }
+            if (docType !== 'cover_letter' && data.jobs.every(j => !j.jds && j.metrics.every(m => !m))) {
+                 displayError("To generate content, please provide Core Responsibilities (JDs) OR at least one Quantifiable Achievement (Metric).", true);
+                 return;
+            }
+            
+            // UI State Change
+            document.getElementById('step-2').classList.add('hidden');
+            document.getElementById('step-3').classList.remove('hidden');
+            
+            let resultTitle;
+            if (docType === 'resume') resultTitle = '3. Optimized Resume History (Experience)';
+            else if (docType === 'cover_letter') resultTitle = '3. Generated Cover Letter';
+            else if (docType === 'summary') resultTitle = '3. Generated Professional Summary';
+            document.getElementById('result-title').textContent = resultTitle;
+            
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const resultOutput = document.getElementById('result-output');
+            
+            resultOutput.value = "";
+            loadingIndicator.classList.remove('hidden');
+            displayError("", false); 
+            
+            startLoadingMessages(); // Start dynamic messages
+            
+            const userQuery = buildQuery(data, docType);
+            
+            // Determine System Prompt based on document type
+            let systemPrompt;
+            if (docType === 'resume') {
+                systemPrompt = "You are a world-class professional resume writer. Your task is to take the provided employment history, including structured metrics and projects, and the target job description to generate a new, optimized professional summary of the candidate's experience. You must rephrase the existing responsibilities to match the language, keywords, and scope of the Target Job Description, focusing on quantifiable, measurable achievements. Use structured metrics and project details to strengthen the bullet points. Do not include any introductory or concluding conversational text. Only output the formatted job history.";
+            } else if (docType === 'summary') {
+                systemPrompt = "You are an expert resume summary writer. Your task is to generate a powerful, concise professional summary (4-5 sentences, one paragraph) for the top of the resume. The summary must be highly targeted to the keywords and requirements of the Target Job Description and draw heavily on the candidate's structured metrics and overall experience. Only output the summary paragraph.";
+            } else { // cover_letter
+                systemPrompt = "You are an expert career counselor and professional writer. Your task is to write a tailored, single-page formal cover letter using the candidate's history, structured metrics, projects, education details (Degree and University), and the target job description. The letter must directly connect the candidate's past experience (skills, tenure, achievements, metrics, and project results) and education to the requirements of the target role. Do not include any conversational wrappers or comments outside the letter itself. Only output the complete, formatted Cover Letter.";
+            }
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            const maxRetries = 3;
+            let currentRetry = 0;
+
+            while (currentRetry < maxRetries) {
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Service returned status ${response.status}: ${response.statusText}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    const generatedText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                    if (!generatedText) {
+                        const blockReason = result.candidates?.[0]?.finishReason || 'Unknown generation structure error.';
+                        throw new Error(`Content generation failed or was blocked. Please refine your input. Reason: ${blockReason}`);
+                    }
+
+                    resultOutput.value = generatedText;
+                    stopLoadingMessages();
+                    loadingIndicator.classList.add('hidden');
+                    return; // Success
+                } catch (error) {
+                    console.error("Content Generation Error:", error);
+                    currentRetry++;
+                    if (currentRetry < maxRetries) {
+                        const delay = Math.pow(2, currentRetry) * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    } else {
+                        stopLoadingMessages();
+                        loadingIndicator.classList.add('hidden');
+                        displayError(`Failed to generate document after ${maxRetries} attempts. Error: ${error.message}.`, true);
+                    }
+                }
+            }
+        }
+
+        /**
+         * Downloads the content of the results textarea as a .doc file.
+         */
+        function downloadContent() {
+            const content = document.getElementById('result-output').value;
+            if (!content) {
+                displayError("No content to download. Please generate the document first.", true);
+                return;
+            }
+
+            let fileName;
+            if (activeDocumentType === 'resume') {
+                fileName = 'Optimized_Resume_History.doc';
+            } else if (activeDocumentType === 'summary') {
+                fileName = 'Optimized_Professional_Summary.doc';
+            } else {
+                fileName = 'Tailored_Cover_Letter.doc';
+            }
+
+            // Client-side file generation using Blob
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            
+            // Standard browsers file download
+            const link = document.createElement('a');
+            if (link.download !== undefined) { 
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', fileName);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                // Fallback for environment constraints
+                const newWindow = window.open('', '_blank');
+                newWindow.document.write(`<pre>${content}</pre>`);
+                newWindow.document.close();
+            }
+        }
+
+        // Initialize with one job entry and load saved data on load
+        window.onload = function() {
+            loadData();
+            // Ensure at least one Job and one Degree entry exists if not loaded
+            if (document.querySelectorAll('.job-entry').length === 0) {
+                 addJobEntry();
+            }
+            if (document.querySelectorAll('.degree-entry').length === 0) {
+                 addDegreeEntry();
+            }
+        };
+
+    </script>
+</body>
+</html>

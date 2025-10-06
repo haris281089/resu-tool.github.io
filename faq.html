@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - AI Resume History Optimizer</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1f2937; /* Dark background */
+            color: #d1d5db; /* Light text */
+        }
+        .dark-input {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: #f3f4f6;
+        }
+        .dark-input:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 1px #6366f1;
+        }
+        strong {
+            font-weight: 700; /* Ensure strong tag is visually bold */
+            color: #f3f4f6;
+        }
+        /* Custom link styling for header/footer */
+        .nav-link {
+            transition: color 0.2s;
+            border-radius: 0.5rem;
+        }
+        .nav-link:hover {
+            color: #818cf8; /* indigo-300 */
+            text-decoration: underline;
+        }
+        /* Accordion-specific styles */
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .accordion-header:hover {
+            background-color: #374151; /* gray-700 hover */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+            padding: 0 1.5rem;
+        }
+        .accordion-content.open {
+            max-height: 500px; /* Sufficiently large value for content expansion */
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+        }
+        .rotate-90 {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    
+    <!-- HEADER SECTION (Shared Theme) -->
+    <header class="bg-gray-900 shadow-xl border-b border-gray-700 p-4 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+            <!-- Logo / Main Brand Name -->
+            <div class="text-2xl font-extrabold text-white flex items-center">
+                <svg class="w-7 h-7 mr-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9.25 21H14.75L14.25 17M12 3L2 12H4V21H20V12H22L12 3Z"></path></svg>
+                <span class="text-indigo-400">AI</span> Optimizer
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="flex space-x-6 text-sm font-medium">
+                <a href="index101.html" class="text-gray-300 nav-link hover:text-indigo-400">Tool</a>
+                <a href="about.html" class="text-gray-300 nav-link hover:text-indigo-400">About us</a>
+                <a href="contact.html" class="text-gray-300 nav-link hover:text-indigo-400">Contact Us</a>
+                <a href="faq.html" class="text-indigo-400 nav-link font-semibold underline">FAQ</a>
+                <a href="others.html" class="text-gray-300 nav-link hover:text-indigo-400">Relatable</a>
+            </nav>
+        </div>
+    </header>
+    <!-- END HEADER SECTION -->
+
+    <!-- MAIN CONTENT: FAQ SECTION -->
+    <main class="flex-grow">
+        <div class="max-w-4xl mx-auto bg-gray-800 p-6 md:p-10 rounded-xl shadow-2xl border border-gray-700 my-8">
+            <h1 class="text-3xl font-extrabold text-white mb-8 text-center border-b border-indigo-400 pb-3">
+                Frequently Asked Questions (FAQ)
+            </h1>
+
+            <div class="space-y-4" id="faq-container">
+                <!-- Q1-Q18: General Functionality -->
+                <h2 class="text-xl font-bold text-white pt-4 pb-2 border-b border-gray-700">General Functionality</h2>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">1. What exactly is the AI Resume History Optimizer?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">It is a <strong>strategic semantic engine</strong> designed to align your raw professional history with the precise, contextual requirements of any target job description using advanced computational linguistics and rhetorical calibration.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">2. Who is this tool primarily designed for?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">It is ideal for professionals seeking career progression, individuals making career changes, high-volume job seekers, and anyone struggling to bypass rigid <strong>Applicant Tracking System (ATS)</strong> filters due to semantic mismatch.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">3. What types of documents can the Optimizer generate?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">It outputs three optimized documents: an <strong>Optimized Resume History</strong> (the core bullet points), a <strong>Hyper-Personalized Professional Summary</strong>, and a <strong>Tailored Cover Letter</strong> (based on the provided history and JD).</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">4. Is this simply a keyword-matching utility?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">No. It performs advanced semantic restructuring and <strong>Bijective Career Mapping</strong>. It analyzes contextual relevance, latent skill demands, and organizational value systems, going far beyond superficial keyword analysis.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">5. How many job entries can I input for my history?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">The interface supports inputting an unlimited number of job entries. We recommend providing a comprehensive history to give the Engine the richest possible dataset for optimal analysis.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">6. What is the C-A-R framework and why is it important?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">C-A-R stands for Challenge-Action-Result. It is a highly effective, advanced rhetorical structure used by the Engine to rephrase simple duties into statements that emphasize <strong>measurable outcomes</strong> and quantifiable professional impact.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">7. How does the Optimizer handle chronological career gaps?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">By focusing on <strong>vectors of transferability</strong> (core competencies that carry forward), the Engine inherently minimizes the perceived negative impact of chronological gaps, emphasizing competence continuity rather than temporal sequence.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">8. Is there a usage limit on how many times I can optimize my history?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">There is no hard limit. You are encouraged to optimize your history as frequently as you require, especially whenever you target a new or significantly different Job Description to maintain maximum relevance.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">9. How long does the semantic synthesis process take?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Due to the high-efficiency architecture of the <strong>QuantumScript Optimization Engine</strong>, the complex optimization and synthesis process is performed in real-time, typically completing within seconds, even with extensive input data.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">10. Can I edit the output after it has been generated by the Engine?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Yes. The output is provided in an editable text field, allowing for crucial final human review, minor stylistic modifications, and incorporation into your preferred final document format.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">11. Does the Optimizer support international CV or resume formats?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">The Engine focuses on the <strong>linguistic and rhetorical quality</strong> of the content, which is universally valuable. It outputs a content string, leaving the final presentation format (CV, Resume, etc.) to the user's discretion.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">12. What is the purpose of the "Hyper-Personalized Professional Summary"?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">It is a high-impact, executive-level introductory paragraph that semantically synthesizes the key, relevant findings from your optimized history, calibrated specifically to serve as a powerful opening for the target JD.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">13. What is the quickest way to start using the tool?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">First, input your past job duties and achievements into the structured history fields. Second, paste the full text of your target Job Description into the designated JD input field, and then run the Optimization.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">14. Does the Engine rely on static external databases for skill definitions?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">No. The <strong>QuantumScript Optimization Engine</strong> utilizes its own proprietary, dynamically updated linguistic models, allowing it to deduce required terminology and current industry context, rather than relying on stale, static external datasets.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">15. Can the Optimizer assist with a lateral career move?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Yes, it is extremely powerful for lateral moves, as its core strength lies in its ability to identify and amplify <strong>vectors of transferability</strong>—showing how existing skills are valuable in a new, related domain.</p>
+                    </div>
+                </div>
+                
+                <!-- NEW QUESTIONS INSERTED HERE -->
+                
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">16. How does the Engine handle ambiguous or vague Job Descriptions?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">In cases of vague input, the Engine defaults to optimizing for <strong>maximum transferable skills and value creation</strong>, prioritizing high-impact action verbs and quantitative results based on your history, even if the JD lacks specifics.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">17. Does the tool manage the length of the optimized bullet points?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Yes. The optimization process is engineered to create concise, high-density statements (typically 1-2 lines in standard formatting) to maximize the information-to-space ratio, a key metric for recruiter engagement.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">18. How should I refine the output if it isn't perfect on the first try?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Optimization is an iterative process. If the output needs adjustment, <strong>refine your input history</strong> to be more specific (e.g., adding metrics or context) or <strong>add more critical keywords</strong> to the target Job Description before re-running the Engine.</p>
+                    </div>
+                </div>
+                
+                <!-- END NEW QUESTIONS -->
+
+                <!-- Section: The QuantumScript Engine (Q19-Q32) -->
+                <h2 class="text-xl font-bold text-white pt-6 pb-2 border-b border-gray-700">The <strong>QuantumScript Optimization Engine</strong></h2>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">19. What exactly is the <strong>QuantumScript Optimization Engine</strong>?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">It is our proprietary <strong>context-aware neural architecture</strong>, a high-performance system responsible for executing all complex semantic analysis, <strong>Bijective Career Mapping</strong>, and linguistic transformation tasks on your input data.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">20. Why the unique name "QuantumScript"?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">The name encapsulates its key attributes: <strong>Quantum</strong> signifying the speed and atomic level of detail in the analysis, and <strong>Script</strong> referring to the generative linguistic process of rewriting and refining (scripting) your professional narrative.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">21. Please elaborate on <strong>Deep JD Deconstruction</strong>.</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">This is the Engine's initial, rigorous analysis of the Job Description. It moves beyond obvious requirements to deduce <strong>implicit cultural terminology</strong>, required personality traits, and the <strong>weighted priority metrics</strong> (e.g., is growth or cost reduction more important?).</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">22. How does the Engine handle specific industry jargon?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">The Engine maintains highly specific domain-centric terminology where appropriate but ensures it is presented in the most persuasive and high-value context, often translating generic terms into industry-specific, authoritative <strong>power verbs</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">23. Is the <strong>QuantumScript Optimization Engine</strong> a standard LLM?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">While it is built on foundational generative AI principles, it is a specialized, fine-tuned architecture. It is hyper-optimized exclusively for rhetorical career synthesis and lacks the generalized knowledge base of conventional Large Language Models.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">24. Can the Engine learn and adapt from my specific inputs over time?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">No. Due to our strict commitment to <strong>Absolute Data Sovereignty</strong>, the Engine is engineered for <strong>ephemeral computation</strong>. Your input is processed in real-time and destroyed, preventing any possibility of model learning or data retention.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">25. Define <strong>Bijective Career Mapping</strong>.</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">This is the critical second stage where every single quantified achievement or duty in your history is directly and intentionally mapped (one-to-one) to a specific value or requirement deduced from the target JD, ensuring total contextual translation.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">26. Does the Engine automatically correct grammatical errors?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">While its core function is semantic and rhetorical, the complex linguistic calibration process includes an inherent, rigorous check that automatically corrects most fundamental grammatical and syntactical flaws, enhancing overall readability.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">27. How does the Engine incorporate corporate buzzwords?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">It exercises <strong>selective rhetorical inclusion</strong>, introducing high-value, contemporary professional terminology only when the semantics are fully supported by your underlying history. It avoids gratuitous buzzword usage, focusing on genuine relevance.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">28. What is the goal of <strong>epistemological alignment</strong>?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">It is the technical term for establishing a perfect, defensible match in understanding (epistemology) between what the prospective employer is seeking (as defined in the JD) and what your document explicitly communicates about your history.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">29. Does the Engine require continuous internet access to function?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Yes. The high computational complexity of the <strong>QuantumScript Optimization Engine</strong> and its reliance on proprietary cloud processing for real-time semantic transformation necessitates a continuous, secure internet connection.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">30. How does the Engine quantify success metrics if my history is vague?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">The Engine uses <strong>inferential reasoning</strong>. If you state 'Managed project,' it will restructure the sentence to highlight the potential for quantification (e.g., 'Managed [Scope] project to deliver [Result]'), prompting the user to fill in the critical metrics.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">31. Can I optimize my history for five different job descriptions at once?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">No. The Engine is engineered for <strong>maximum rhetorical force and precision</strong>, which requires a unique, single Job Description for each optimization run. This ensures the output remains a true <strong>hyper-personalized pitch deck</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">32. What is the primary operational language of the Engine?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">The <strong>QuantumScript Optimization Engine</strong> is currently engineered for optimal performance and rhetorical precision in contemporary professional English, specifically focusing on American and global business dialects.</p>
+                    </div>
+                </div>
+
+                <!-- Section: Data & Privacy (Q33-Q47) -->
+                <h2 class="text-xl font-bold text-white pt-6 pb-2 border-b border-gray-700">Data & <strong>Absolute Sovereignty</strong></h2>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">33. Where is my raw professional history data stored?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">It is stored exclusively on your local device within your web browser's storage mechanism, specifically <strong>LocalStorage</strong>. This ensures your data remains under your direct, physical control.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">34. Does any of my data ever leave my browser environment?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Only the minimal, <strong>ephemeral, encrypted data packet</strong> necessary for the real-time computational analysis is transmitted to the <strong>QuantumScript Optimization Engine</strong> for the duration of the optimization run.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">35. Do you retain any of my data on your controlled servers?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">No. Our policy of <strong>Absolute Data Sovereignty</strong> strictly prohibits retention. The transmitted input data is <strong>destroyed immediately</strong> upon the generation of the optimized output and is never archived or stored.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">36. Is the data transmission to the Engine secured?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Yes. All communication, including the transmission of the data packet for processing, occurs over secure, industry-standard encrypted channels (HTTPS/TLS) to ensure data integrity and confidentiality.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">37. What happens if I clear my browser's cache or cookies?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Clearing your browser's local data (which includes <strong>LocalStorage</strong>) for this website will result in the <strong>permanent deletion</strong> of your raw input history. Use the in-tool "Clear History" button or export data first.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">38. Is my data used for machine learning model training?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Categorically no. The <strong>QuantumScript Optimization Engine</strong> is designed with a strict data funnel that prevents all input data from being retained, archived, or repurposed for any machine learning model refinement or training purposes.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">39. Can other users of the Optimizer access my saved data?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">No. Since the data is saved locally on your specific device via <strong>LocalStorage</strong>, it is entirely isolated and inaccessible by any other user, external system, or another instance of the application on a different device.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">40. What is the process for permanent data deletion?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">You can permanently delete your data in one of two ways: using the "Clear All History" button within the tool's interface, or by manually clearing your web browser's local storage for this specific website.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">41. What type of data is stored non-encrypted in <strong>LocalStorage</strong>?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Your raw input data—specifically the job titles, company names, employment dates, and descriptive duties—is saved as a non-encrypted string in your browser's <strong>LocalStorage</strong> for easy retrieval and editing.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">42. Why utilize <strong>LocalStorage</strong> over a centralized cloud database?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">This choice is fundamental to our commitment to <strong>Absolute Data Sovereignty</strong>. It ensures you, the user, retain complete, immediate, and independent control over your data's persistence and life-cycle without server reliance.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">43. What is the definition of a <strong>client-side persistence model</strong>?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">It denotes an architectural approach where the functionality for saving and retrieving user data is executed entirely by the user's local computing client (i.e., the web browser), rather than by remote, application-managed server infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">44. If I switch to a new laptop or browser, will my saved history transfer?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">No. Since your data is saved locally to a specific browser installation on a specific device, it <strong>will not transfer</strong> automatically. We recommend exporting and importing your data manually when changing devices.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">45. Are there future plans for a synchronized cloud storage feature?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">To firmly uphold our core privacy commitment, there are <strong>no immediate plans</strong> to introduce server-side synchronization. Our focus is on enhancing manual portability via robust export/import features.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">46. Does the application use browser cookies for user tracking?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">The application minimizes cookie usage. Only strictly necessary, <strong>non-identifying session cookies</strong> related to the functionality of the underlying computational services may be used. User history is never tracked or identified via cookies.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">47. How is the security of the <strong>QuantumScript Optimization Engine</strong> itself maintained?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">The Engine operates within a <strong>highly secured, isolated cloud environment</strong>, protected by continuous monitoring, strict access controls, and state-of-the-art security protocols to prevent unauthorized external access.</p>
+                    </div>
+                </div>
+
+                <!-- Section: Usage & Technical (Q48-Q53) -->
+                <h2 class="text-xl font-bold text-white pt-6 pb-2 border-b border-gray-700">Usage & Technical Support</h2>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">48. Is the Optimizer compatible with all major web browsers?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Yes, the application is optimized for full functionality and responsive design across all modern, standards-compliant browsers, including Chrome, Firefox, Safari, and Edge.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">49. I am getting an empty or blank output after optimization. What should I check?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Ensure two things: 1) Your professional history fields are adequately populated with duties, and 2) The target Job Description is pasted in its entirety. If the issue persists, try refreshing and re-running the optimization.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">50. How do I export or save the finalized optimized document?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Use the "Download Document" button below the output field. The Engine generates a clean, non-formatted text file that can be easily imported and formatted within any word processing software (Word, Google Docs, etc.).</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">51. Can I import a pre-existing resume file (PDF/DOCX) for optimization?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">Currently, the tool requires manual entry of your past duties into the structured history fields. This ensures the Engine can accurately map and analyze each distinct achievement without the noise introduced by file conversion.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">52. What future enhancements are planned for the Optimizer?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">We are continuously refining the <strong>QuantumScript Optimization Engine</strong>. Planned enhancements include more sophisticated rhetorical analysis modes, expansion of multi-language support, and the development of portable document formatting export templates.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-lg border border-gray-700 bg-gray-900">
+                    <div class="accordion-header flex justify-between items-center p-4">
+                        <span class="text-lg font-medium">53. Is there an assurance that the output is 100% Applicant Tracking System (ATS) compliant?</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-400">The Engine generates highly optimized, clean, text-based content designed to maximize <strong>semantic matching</strong> with the JD. While compliance depends on your final document formatting, the <strong>content</strong> is optimized to meet the most stringent ATS requirements for clarity and keyword density.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+    <!-- END MAIN CONTENT -->
+
+    <!-- FOOTER SECTION (Shared Theme) -->
+    <footer class="bg-gray-900 border-t border-gray-700 mt-8 py-6">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-3 md:space-y-0 md:space-x-6 text-sm">
+            <p class="text-gray-400">&copy; 2024 AI Optimizer. All rights reserved.</p>
+            <div class="flex space-x-4">
+                <a href="pp.html" class="text-gray-300 nav-link hover:text-indigo-400">Privacy Policy</a>
+                <span class="text-gray-500">|</span>
+                <a href="tos.html" class="text-gray-300 nav-link hover:text-indigo-400">Terms and Conditions</a>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER SECTION -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.accordion-item');
+
+            items.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                const icon = header.querySelector('svg');
+
+                header.addEventListener('click', () => {
+                    const isOpen = content.classList.contains('open');
+
+                    // Close all other open items
+                    items.forEach(otherItem => {
+                        const otherContent = otherItem.querySelector('.accordion-content');
+                        const otherIcon = otherItem.querySelector('svg');
+                        if (otherContent !== content && otherContent.classList.contains('open')) {
+                            otherContent.classList.remove('open');
+                            otherIcon.classList.remove('rotate-90');
+                            otherContent.style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle current item
+                    if (isOpen) {
+                        content.classList.remove('open');
+                        icon.classList.remove('rotate-90');
+                        content.style.maxHeight = null;
+                    } else {
+                        content.classList.add('open');
+                        icon.classList.add('rotate-90');
+                        // Set maxHeight dynamically for smooth transition
+                        // Note: 500px is set in CSS, but this line ensures JS override if necessary
+                        content.style.maxHeight = content.scrollHeight + 30 + "px"; 
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
